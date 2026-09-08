@@ -1,0 +1,1 @@
+export function AuthDivider({ children }: { children: string }) { return <div className="my-6 flex items-center gap-3 text-[10px] uppercase tracking-[.18em] text-muted"><span className="h-px flex-1 bg-border" />{children}<span className="h-px flex-1 bg-border" /></div>; }

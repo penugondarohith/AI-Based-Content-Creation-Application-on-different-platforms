@@ -1,0 +1,3 @@
+import type { ReactNode } from "react";
+import { AuthBrandPanel } from "./auth-brand-panel";
+export function AuthLayout({ children }: { children: ReactNode }) { return <main className="min-h-screen bg-background lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(420px,.95fr)]"><AuthBrandPanel /><section className="flex min-h-screen items-center justify-center px-5 py-12 sm:px-10"><div className="w-full max-w-md">{children}</div></section></main>; }

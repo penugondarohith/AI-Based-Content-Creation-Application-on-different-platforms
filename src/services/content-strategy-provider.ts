@@ -1,0 +1,2 @@
+import type { ContentStrategy, StrategyInput, StrategyVariation } from "@/types/content-strategy";
+export interface ContentStrategyProvider { generateStrategy(input: StrategyInput, variation?: StrategyVariation): Promise<ContentStrategy>; }

@@ -1,0 +1,2 @@
+import Link from "next/link";
+export function AuthFooter({ mode }: { mode: "sign-in" | "sign-up" }) { return <p className="mt-8 text-center text-sm text-muted">{mode === "sign-in" ? "New to ContentForge AI?" : "Already have an account?"} <Link href={mode === "sign-in" ? "/sign-up" : "/sign-in"} className="font-medium text-primary transition hover:text-primary-strong">{mode === "sign-in" ? "Create an account" : "Sign in"}</Link></p>; }

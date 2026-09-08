@@ -1,7 +1,10 @@
+"use client";
 import Link from "next/link";
 import { ArrowUpRight, Menu } from "lucide-react";
+import { useAuth } from "@/context/auth-context";
 
 export function Navbar() {
+  const { isAuthenticated, user } = useAuth();
   return (
     <header className="absolute inset-x-0 top-0 z-20">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8">
@@ -15,10 +18,7 @@ export function Navbar() {
           <a href="#workflow" className="transition hover:text-white">Workflow</a>
         </nav>
         <div className="flex items-center gap-2">
-          <Link href="/dashboard" className="hidden px-3 py-2 text-sm text-white/70 transition hover:text-white sm:block">Sign in</Link>
-          <Link href="/create" className="flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-medium text-primary-strong shadow-lg shadow-black/10 transition hover:bg-primary-soft">
-            Create strategy <ArrowUpRight size={15} />
-          </Link>
+          {isAuthenticated ? <Link href="/dashboard" className="flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-medium text-primary-strong shadow-lg shadow-black/10 transition hover:bg-primary-soft"><span className="flex size-5 items-center justify-center rounded-full bg-primary-soft text-[10px] text-primary">{user?.name.charAt(0).toUpperCase()}</span> Go to dashboard <ArrowUpRight size={15} /></Link> : <><Link href="/sign-in" className="hidden px-3 py-2 text-sm text-white/70 transition hover:text-white sm:block">Sign in</Link><Link href="/sign-up" className="flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-medium text-primary-strong shadow-lg shadow-black/10 transition hover:bg-primary-soft">Create strategy <ArrowUpRight size={15} /></Link></>}
           <button aria-label="Open menu" className="rounded-lg border border-white/15 p-2 text-white md:hidden"><Menu size={18} /></button>
         </div>
       </div>
