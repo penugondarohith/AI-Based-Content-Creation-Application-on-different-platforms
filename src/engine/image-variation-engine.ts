@@ -1,2 +1,0 @@
-const variations = ["macro product focus with a close camera angle", "lifestyle composition with a human-scale context", "editorial environment with layered background depth", "soft side lighting with tactile material emphasis"];
-export function getImageVariation(index: number) { return variations[index % variations.length]; }

@@ -3,6 +3,8 @@ export interface User {
   name: string;
   email: string;
   age: number;
+  accountType?: "PERSONAL" | "GUEST";
+  profilePicture?: string;
   password?: string;
   createdAt: string;
 }

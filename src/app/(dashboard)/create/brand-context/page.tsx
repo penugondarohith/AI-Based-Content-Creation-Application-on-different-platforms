@@ -85,7 +85,7 @@ export default function BrandContextPage() {
           <p className="text-[10px] font-semibold uppercase tracking-[.18em] text-primary">Phase 3</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-.04em]">Tell us about your company</h2>
           <p className="mt-3 text-sm leading-6 text-muted">
-            Before we generate the post, give us the brand and product details that should shape the strategy and visuals.
+            Before we generate campaign content, give us the brand and product details that should shape the strategy.
           </p>
         </div>
 

@@ -1,2 +1,0 @@
-import type { GeneratedImage } from "@/types/generated-image";
-export function validateGeneratedImage(image: GeneratedImage) { const checks = [Boolean(image.imageUrl), image.status === "READY", Boolean(image.metadata?.provider), Boolean(image.prompt.prompt)]; return { valid: checks.every(Boolean), checks: { imageExists: checks[0], generationCompleted: checks[1], providerResponse: checks[2], promptValid: checks[3] } }; }

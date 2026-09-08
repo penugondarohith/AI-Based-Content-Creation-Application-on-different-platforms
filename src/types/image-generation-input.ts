@@ -1,2 +1,0 @@
-import type { ImageGenerationPrompt } from "./generated-image";
-export interface ImageGenerationInput { projectId: string; generatedContentId: string; calendarPostId: string; prompt: ImageGenerationPrompt; }

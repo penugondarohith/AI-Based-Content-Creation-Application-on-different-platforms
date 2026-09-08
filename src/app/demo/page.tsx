@@ -5,8 +5,6 @@ import Link from "next/link";
 import { BarChart3, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { loadDemoProject } from "@/services/demo-project-service";
-import { PostRenderer } from "@/components/post-composer/post-renderer";
-import type { ComposedPost } from "@/types/composed-post";
 
 const demoSteps = [
   { id: 1, title: "Industry Intelligence", description: "ContentForge maps the market context and product positioning." },
@@ -14,10 +12,9 @@ const demoSteps = [
   { id: 3, title: "Brand Knowledge", description: "Brand voice, tone, and product signals are captured." },
   { id: 4, title: "Content Strategy", description: "A structured content calendar and pillar mix are established." },
   { id: 5, title: "Content Generation", description: "Campaign hooks, captions, and CTA frameworks are generated." },
-  { id: 6, title: "AI Visual Generation", description: "Visual directions are transformed into supporting creative assets." },
-  { id: 7, title: "Campaign Review", description: "The content is assessed for quality and strategic fit." },
-  { id: 8, title: "Platform Optimization", description: "Each post is adapted for the right channel and format." },
-  { id: 9, title: "Performance Intelligence", description: "Signals and recommendations are surfaced for optimization." },
+  { id: 6, title: "Content Review", description: "The content is assessed for quality and strategic fit." },
+  { id: 7, title: "Platform Optimization", description: "Each post is adapted for the right channel and format." },
+  { id: 8, title: "Performance Intelligence", description: "Signals and recommendations are surfaced for optimization." },
 ];
 
 export default function DemoPage() {
@@ -28,28 +25,6 @@ export default function DemoPage() {
 
   const current = demoSteps[step - 1];
   const content = demo.generatedContent[selectedPost] ?? demo.generatedContent[0];
-  const post: ComposedPost = {
-    id: "demo-composed-post",
-    projectId: demo.project.id,
-    generatedContentId: content.id,
-    generatedImageId: content.generatedImage?.id,
-    status: "READY",
-    template: "EDITORIAL",
-    aspectRatio: "4:5",
-    imageUrl: content.generatedImage?.imageUrl,
-    composition: {
-      backgroundImageUrl: content.generatedImage?.imageUrl,
-      headline: content.content.hook,
-      subheadline: content.content.callToAction,
-      brandName: demo.brandContext.brandName,
-      textPosition: "LEFT",
-      overlayStyle: "GRADIENT",
-      visualStyle: content.content.visualDirection.concept,
-    },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  };
-
   const goNext = () => setStep((prev) => Math.min(prev + 1, demoSteps.length));
   const goPrev = () => setStep((prev) => Math.max(prev - 1, 1));
 
@@ -104,7 +79,7 @@ export default function DemoPage() {
                 <p className="text-[10px] font-semibold uppercase tracking-[.22em] text-violet-300">Demo simulation</p>
                 <h2 className="mt-2 text-3xl font-semibold tracking-[-0.04em]">{current.title}</h2>
               </div>
-              <span className="rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-xs text-violet-200">Step {step}/9</span>
+              <span className="rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-xs text-violet-200">Step {step}/8</span>
             </div>
 
             <p className="max-w-3xl text-base leading-7 text-white/70">{current.description}</p>
@@ -127,8 +102,11 @@ export default function DemoPage() {
 
               <div className="rounded-2xl border border-white/10 bg-[#11182d] p-4">
                 <p className="text-xs uppercase tracking-[.2em] text-white/50">Live generated output</p>
-                <div className="mt-4 flex justify-center">
-                  <PostRenderer post={post} />
+                <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-5">
+                  <p className="text-[10px] uppercase tracking-[.2em] text-violet-200">Generated campaign content</p>
+                  <p className="mt-3 text-xl font-semibold">{content.content.title}</p>
+                  <p className="mt-3 text-sm leading-6 text-white/70">{content.content.caption}</p>
+                  <p className="mt-4 text-sm font-medium text-violet-200">{content.content.callToAction}</p>
                 </div>
               </div>
             </div>
@@ -154,7 +132,10 @@ export default function DemoPage() {
                 onClick={() => setSelectedPost(index)}
                 className={`overflow-hidden rounded-2xl border text-left transition ${index === selectedPost ? "border-violet-400 bg-violet-500/10" : "border-white/10 bg-[#11182d]"}`}
               >
-                <img src={item.generatedImage?.imageUrl} alt={item.content.title} className="h-44 w-full object-cover" />
+                <div className="bg-gradient-to-br from-violet-500/25 via-slate-900 to-slate-950 p-5">
+                  <p className="text-[10px] uppercase tracking-[.18em] text-violet-200">{item.content.visualDirection.concept}</p>
+                  <p className="mt-8 text-lg font-semibold text-white">{item.content.hook}</p>
+                </div>
                 <div className="p-4">
                   <p className="text-[10px] uppercase tracking-[.18em] text-white/45">Post 0{item.postNumber}</p>
                   <p className="mt-2 font-medium text-white">{item.content.title}</p>
