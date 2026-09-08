@@ -3,8 +3,9 @@ import type { ContentConfiguration } from "./content-configuration";
 import type { BrandContext } from "./brand-context";
 import type { ReferenceFile } from "./reference-file";
 import type { ContentStrategy } from "./content-strategy";
+import type { GeneratedContent } from "./generated-content";
 
-export type ProjectStatus = "DRAFT" | "CONFIGURING" | "READY" | "STRATEGY_READY" | "GENERATING" | "COMPLETED";
+export type ProjectStatus = "DRAFT" | "CONFIGURING" | "READY" | "STRATEGY_READY" | "CONTENT_GENERATING" | "CONTENT_READY" | "GENERATING" | "COMPLETED";
 
 export type Project = {
   id: string;
@@ -15,7 +16,7 @@ export type Project = {
   referenceFiles: ReferenceFile[];
   brandContext: BrandContext | null;
   contentStrategy: ContentStrategy | null;
-  generatedPosts?: unknown[];
+  generatedContent: GeneratedContent[];
   qualityScores?: Record<string, number>;
   status: ProjectStatus;
   createdAt: string;
