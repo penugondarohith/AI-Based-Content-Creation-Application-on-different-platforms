@@ -42,7 +42,7 @@ export function CategoryDetailsForm() {
     else {
       const now = new Date().toISOString();
       setCategoryDetails({ id: categoryDetails?.id ?? "category_details", projectId: categoryDetails?.projectId ?? "project_current", industry: industryId, category: config?.category, data, createdAt: categoryDetails?.createdAt ?? now, updatedAt: now });
-      router.push("/create/brand-context");
+      router.push("/create/strategy");
     }
   };
   const back = () => stepIndex > 0 ? setStepIndex((current) => current - 1) : router.push("/create/configure");
