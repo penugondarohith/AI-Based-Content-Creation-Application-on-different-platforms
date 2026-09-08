@@ -1,0 +1,5 @@
+import type { ContentDuration } from "@/types/content-configuration";
+import { durationLabels, durationPostLabels } from "@/lib/content-configuration";
+
+const options: ContentDuration[] = ["ONE_WEEK", "TWO_WEEKS", "ONE_MONTH"];
+export function ContentDurationSelector({ value, onChange }: { value: ContentDuration; onChange: (value: ContentDuration) => void }) { return <section><h3 className="text-sm font-semibold">Content Duration</h3><p className="mt-1 text-xs text-muted">Set the rhythm for this campaign.</p><div className="mt-3 grid gap-2 sm:grid-cols-3">{options.map((option) => <button key={option} type="button" onClick={() => onChange(option)} className={`rounded-lg border p-4 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${value === option ? "border-primary bg-primary-soft text-primary-strong" : "border-border bg-surface hover:border-primary/30"}`}><span className="block text-sm font-medium">{durationLabels[option]}</span><span className="mt-1 block text-xs text-muted">{durationPostLabels[option]}</span></button>)}</div></section>; }

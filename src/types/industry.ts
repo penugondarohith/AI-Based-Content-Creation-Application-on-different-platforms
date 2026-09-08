@@ -5,6 +5,7 @@ export type IndustryConfig = {
   name: string;
   shortName: string;
   description: string;
+  strategyLabel?: string;
   icon: string;
   color: string;
   tone: string[];
