@@ -63,6 +63,10 @@ Then open:
 http://localhost:3000
 ```
 
+### Personalized LLM generation
+
+ContentForge sends the user's brand, product, audience, campaign objective, and content requirements to the server-side LLM route when `OPENAI_API_KEY` is configured. Copy `.env.example` to `.env.local` and add the key. The app validates the structured response and does not ask the model to invent missing business facts.
+
 ### 3. Production build
 
 ```bash

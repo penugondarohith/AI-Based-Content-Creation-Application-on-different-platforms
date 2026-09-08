@@ -1,15 +1,22 @@
-import type { CategoryQuestion } from "@/types/category-question";
+import type { CategoryQuestion, CategoryQuestionStep } from "@/types/category-question";
 
 export type IndustryQuestionConfig = {
   industry: string;
   category: string;
   questions: CategoryQuestion[];
+  steps: CategoryQuestionStep[];
 };
 
 export const industryQuestionConfig: Record<string, IndustryQuestionConfig> = {
   PERFUME: {
     industry: "Perfume",
     category: "Product Details",
+    steps: [
+      { id: "brand", title: "Brand information", questionIds: ["brandName", "productName", "launchDate"] },
+      { id: "details", title: "Perfume details", questionIds: ["perfumeType", "fragranceFamily", "topNotes", "middleNotes", "baseNotes"] },
+      { id: "features", title: "Product features", questionIds: ["keyFeatures", "uniqueSellingPoint", "targetAudience", "priceCategory"] },
+      { id: "campaign", title: "Campaign details", questionIds: ["campaignObjective", "campaignTheme", "desiredTone"] },
+    ],
     questions: [
       { id: "brandName", label: "Company / Brand Name", fieldType: "TEXT", required: true, placeholder: "Dior", helpText: "Primary brand or company behind the product." },
       { id: "productName", label: "Perfume Name", fieldType: "TEXT", required: true, placeholder: "Sauvage", helpText: "The exact perfume or fragrance being promoted." },
@@ -28,11 +35,23 @@ export const industryQuestionConfig: Record<string, IndustryQuestionConfig> = {
       { id: "visualDescription", label: "Visual Description", fieldType: "TEXTAREA", required: false, placeholder: "Transparent rectangular glass bottle with a gold metallic cap and a subtle amber liquid.", helpText: "Describe the product appearance for accurate image generation." },
       { id: "launchType", label: "Launch Type", fieldType: "SELECT", required: false, options: ["New Product Launch", "Seasonal Campaign", "Brand Awareness", "Luxury Promotion", "Limited Edition"], placeholder: "Select launch type" },
       { id: "campaignMessage", label: "Campaign Message", fieldType: "TEXTAREA", required: false, placeholder: "Experience confidence in every moment." },
+      { id: "uniqueSellingPoint", label: "Unique Selling Points", fieldType: "TEXTAREA", required: false, placeholder: "Long-lasting floral fragrance with a distinctive evening character." },
+      { id: "priceCategory", label: "Price Category", fieldType: "SELECT", required: false, options: ["Accessible", "Mid-range", "Premium", "Luxury"], placeholder: "Select price category" },
+      { id: "campaignObjective", label: "Campaign Objective", fieldType: "TEXT", required: true, placeholder: "Launch awareness" },
+      { id: "campaignTheme", label: "Campaign Theme", fieldType: "TEXT", required: false, placeholder: "A floral evening in bloom" },
+      { id: "desiredTone", label: "Desired Tone", fieldType: "TEXT", required: false, placeholder: "Elegant, sensory, confident" },
     ],
   },
   REAL_ESTATE: {
     industry: "Real Estate",
     category: "Property Details",
+    steps: [
+      { id: "project", title: "Project information", questionIds: ["propertyName", "builderName", "propertyType", "propertyStatus"] },
+      { id: "location", title: "Location", questionIds: ["city", "area", "state", "country", "nearbyLandmarks"] },
+      { id: "property", title: "Property details", questionIds: ["bedrooms", "bathrooms", "propertySize", "architectureStyle", "interiorStyle"] },
+      { id: "amenities", title: "Amenities", questionIds: ["amenities", "customAmenities"] },
+      { id: "campaign", title: "Campaign details", questionIds: ["targetAudience", "uniqueSellingPoints", "campaignObjective", "campaignTone"] },
+    ],
     questions: [
       { id: "propertyName", label: "Property / Project Name", fieldType: "TEXT", required: true, placeholder: "Aster Heights" },
       { id: "builderName", label: "Builder / Company Name", fieldType: "TEXT", required: true, placeholder: "Aster Realty" },
@@ -52,11 +71,17 @@ export const industryQuestionConfig: Record<string, IndustryQuestionConfig> = {
       { id: "customAmenities", label: "Custom Amenities", fieldType: "TEXTAREA", required: false, placeholder: "Private cinema, library lounge" },
       { id: "uniqueFeatures", label: "What makes this property special?", fieldType: "TEXTAREA", required: false, placeholder: "Skyline view, premium interiors, gated community, and smart home technology." },
       { id: "targetAudience", label: "Target Audience", fieldType: "MULTI_SELECT", required: false, options: ["Families", "Working Professionals", "Luxury Buyers", "Investors", "First-Time Buyers"], placeholder: "Select target audience" },
+      { id: "architectureStyle", label: "Architecture Style", fieldType: "TEXT", required: false, placeholder: "Contemporary" },
+      { id: "interiorStyle", label: "Interior Style", fieldType: "TEXT", required: false, placeholder: "Modern minimal" },
+      { id: "uniqueSellingPoints", label: "Unique Selling Points", fieldType: "TEXTAREA", required: false, placeholder: "Describe what makes this property different." },
+      { id: "campaignObjective", label: "Campaign Objective", fieldType: "TEXT", required: true, placeholder: "Property promotion" },
+      { id: "campaignTone", label: "Campaign Tone", fieldType: "TEXT", required: false, placeholder: "Warm, premium, family-focused" },
     ],
   },
   JEWELLERY: {
     industry: "Jewellery",
     category: "Product Details",
+    steps: [{ id: "details", title: "Jewellery details", questionIds: [] }],
     questions: [
       { id: "brandName", label: "Brand Name", fieldType: "TEXT", required: true, placeholder: "Aurora Atelier" },
       { id: "productName", label: "Product Name", fieldType: "TEXT", required: true, placeholder: "Solstice Ring" },
@@ -76,6 +101,7 @@ export const industryQuestionConfig: Record<string, IndustryQuestionConfig> = {
   FMCG_FOOD: {
     industry: "FMCG / Food",
     category: "Product Details",
+    steps: [{ id: "details", title: "Food product details", questionIds: [] }],
     questions: [
       { id: "companyName", label: "Company Name", fieldType: "TEXT", required: true, placeholder: "Cedar Foods" },
       { id: "productName", label: "Product Name", fieldType: "TEXT", required: true, placeholder: "Sunrise Granola" },

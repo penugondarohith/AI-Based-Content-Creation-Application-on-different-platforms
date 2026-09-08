@@ -16,3 +16,10 @@ export interface CategoryQuestion {
   options?: string[];
   helpText?: string;
 }
+
+export interface CategoryQuestionStep {
+  id: string;
+  title: string;
+  description?: string;
+  questionIds: string[];
+}

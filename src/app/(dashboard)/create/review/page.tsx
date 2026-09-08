@@ -45,7 +45,7 @@ export default function ReviewPage() {
   return (
     <div className="mx-auto max-w-6xl px-5 py-8 lg:px-8">
       <CreateProjectHeader />
-      <ProjectStepper activeStep={6} />
+      <ProjectStepper activeStep={7} />
 
       <div className="mt-10">
         <div className="rounded-xl bg-[#222149] p-6 text-white sm:p-8">

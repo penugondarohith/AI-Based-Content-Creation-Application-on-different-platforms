@@ -2,12 +2,14 @@ import type { ContentFormat, ContentConfiguration } from "./content-configuratio
 import type { BrandContext } from "./brand-context";
 import type { ReferenceFile } from "./reference-file";
 import type { IndustryConfig, IndustryId } from "./industry";
+import type { CategoryDetails } from "./category-details";
 
 export interface StrategyInput {
   industry: IndustryConfig;
   industryDNA: IndustryConfig;
   configuration: ContentConfiguration;
   brandContext: BrandContext | null;
+  categoryDetails?: CategoryDetails | null;
   referenceFiles: ReferenceFile[];
 }
 

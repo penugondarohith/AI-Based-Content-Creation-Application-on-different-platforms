@@ -1,0 +1,8 @@
+import { CheckCircle2, FileText, FolderKanban, Sparkles } from "lucide-react";
+import type { ProjectActivity } from "@/types/project-activity";
+
+const icons = { PROJECT_CREATED: FolderKanban, STRATEGY_READY: Sparkles, CONTENT_GENERATED: FileText, CONTENT_APPROVED: CheckCircle2, PROJECT_UPDATED: FolderKanban };
+
+export function ActivityFeed({ activities }: { activities: ProjectActivity[] }) {
+  return <section className="rounded-xl border border-border bg-surface p-5 sm:p-6"><div className="flex items-center justify-between"><div><p className="text-[10px] font-semibold uppercase tracking-[.18em] text-primary">Workspace pulse</p><h2 className="mt-2 text-lg font-semibold">Recent activity</h2></div><span className="rounded-full bg-primary-soft px-2.5 py-1 text-[10px] font-medium text-primary">Live</span></div>{activities.length === 0 ? <div className="mt-6 rounded-lg border border-dashed border-border px-4 py-8 text-center"><p className="text-sm font-medium">Your activity will appear here</p><p className="mt-1 text-xs text-muted">Create a campaign to start building your workspace history.</p></div> : <div className="mt-5 space-y-4">{activities.slice(0, 5).map((activity) => { const Icon = icons[activity.type]; return <div key={activity.id} className="flex items-start gap-3"><span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary-soft text-primary"><Icon size={15} /></span><div className="min-w-0"><p className="text-sm">{activity.label}</p><p className="mt-1 text-[11px] text-muted">{new Date(activity.createdAt).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}</p></div></div>; })}</div>}</section>;
+}

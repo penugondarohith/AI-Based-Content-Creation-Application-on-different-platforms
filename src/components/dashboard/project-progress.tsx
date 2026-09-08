@@ -1,0 +1,11 @@
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import type { Project } from "@/types/project";
+
+export function ProjectProgress({ project }: { project: Project | null }) {
+  if (!project) return <section className="rounded-xl border border-dashed border-border bg-surface p-6"><p className="text-sm font-medium">No campaign in progress</p><p className="mt-1 text-xs leading-5 text-muted">Start a campaign and its progress will be tracked here.</p><Link href="/create" className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary px-3 py-2 text-xs font-medium text-white hover:bg-primary-strong">Create campaign <ArrowUpRight size={14} /></Link></section>;
+  const planned = project.configuration.postCount || 1;
+  const generated = project.generatedContent.length;
+  const progress = Math.min(100, Math.round((generated / planned) * 100));
+  return <section className="rounded-xl border border-border bg-surface p-5 sm:p-6"><div className="flex items-start justify-between gap-4"><div><p className="text-[10px] font-semibold uppercase tracking-[.18em] text-primary">Campaign progress</p><h2 className="mt-2 text-lg font-semibold">{project.name}</h2><p className="mt-1 text-xs text-muted">{generated} of {planned} planned posts generated</p></div><span className="text-2xl font-semibold text-primary">{progress}%</span></div><div className="mt-5 h-2 overflow-hidden rounded-full bg-primary-soft"><div className="h-full rounded-full bg-primary transition-all duration-700" style={{ width: `${progress}%` }} /></div><div className="mt-5 grid grid-cols-3 gap-3 text-xs"><div><p className="text-muted">Status</p><p className="mt-1 font-medium">{project.status.replaceAll("_", " ")}</p></div><div><p className="text-muted">Approved</p><p className="mt-1 font-medium">{project.generatedContent.filter((item) => item.status === "APPROVED").length}</p></div><div><p className="text-muted">Updated</p><p className="mt-1 font-medium">{new Date(project.updatedAt).toLocaleDateString()}</p></div></div>{progress === 100 && <p className="mt-5 flex items-center gap-2 text-xs font-medium text-success"><CheckCircle2 size={14} /> Campaign content is ready to review</p>}</section>;
+}

@@ -3,6 +3,7 @@ export type ContentGoal = "BRAND_AWARENESS" | "AUDIENCE_ENGAGEMENT" | "LEAD_GENE
 export type ContentFormat = "INSTAGRAM_POST" | "INSTAGRAM_CAROUSEL" | "PROMOTIONAL_CONTENT" | "EDUCATIONAL_CONTENT" | "STORYTELLING" | "PRODUCT_HIGHLIGHT" | "LIFESTYLE_CONTENT";
 export type AudienceType = "GENERAL_CONSUMERS" | "YOUNG_PROFESSIONALS" | "LUXURY_CONSUMERS" | "FAMILIES" | "INVESTORS" | "STUDENTS" | "CUSTOM_AUDIENCE";
 export type TonePreference = "PROFESSIONAL" | "FRIENDLY" | "LUXURY" | "BOLD" | "MINIMAL" | "PLAYFUL" | "EMOTIONAL" | "INSPIRATIONAL" | "EDUCATIONAL" | "PREMIUM";
+export type Platform = "INSTAGRAM" | "LINKEDIN" | "FACEBOOK" | "X";
 
 export interface ContentConfiguration {
   duration: ContentDuration;
@@ -13,4 +14,5 @@ export interface ContentConfiguration {
   targetAudience: AudienceType | null;
   customAudience: string;
   tonePreferences: TonePreference[];
+  platform?: Platform;
 }

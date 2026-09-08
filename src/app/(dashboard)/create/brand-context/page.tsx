@@ -78,7 +78,7 @@ export default function BrandContextPage() {
   return (
     <div className="mx-auto max-w-5xl px-5 py-8 lg:px-8">
       <CreateProjectHeader />
-      <ProjectStepper activeStep={3} />
+      <ProjectStepper activeStep={4} />
 
       <div className="mt-10 rounded-2xl border border-border bg-surface p-6 sm:p-8">
         <div className="max-w-2xl">
