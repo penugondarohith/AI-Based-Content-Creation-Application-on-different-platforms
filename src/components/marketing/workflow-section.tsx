@@ -1,0 +1,7 @@
+import { ArrowDownRight } from "lucide-react";
+
+const steps = [["01", "Select industry", "Give the system a category to think within."], ["02", "Add brand context", "Bring your voice, audience, and point of view."], ["03", "Generate strategy", "Turn context into a considered content direction."], ["04", "Create calendar", "Move from a clear plan to consistent publishing."]];
+
+export function WorkflowSection() {
+  return <section id="workflow" className="border-y border-border bg-surface-muted"><div className="mx-auto max-w-7xl px-5 py-24 lg:px-8"><div className="max-w-2xl"><p className="mb-3 text-xs font-semibold uppercase tracking-[.2em] text-primary">The workflow</p><h2 className="text-4xl font-semibold tracking-[-.04em]">From industry signal to content momentum.</h2></div><div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-4">{steps.map(([number, title, description]) => <div key={number} className="bg-surface p-6"><div className="mb-12 flex items-center justify-between text-xs text-primary"><span>{number}</span>{number !== "04" && <ArrowDownRight size={17} className="hidden md:block" />}</div><h3 className="font-semibold">{title}</h3><p className="mt-3 text-sm leading-6 text-muted">{description}</p></div>)}</div></div></section>;
+}

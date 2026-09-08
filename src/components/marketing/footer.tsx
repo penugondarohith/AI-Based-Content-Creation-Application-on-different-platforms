@@ -1,0 +1,1 @@
+export function Footer() { return <footer className="bg-[#161735] px-5 py-8 text-white lg:px-8"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-xs text-white/45 sm:flex-row"><span className="font-medium text-white/80">✦ CONTENTFORGE AI</span><span>© 2026 ContentForge AI. Built for better content thinking.</span></div></footer>; }

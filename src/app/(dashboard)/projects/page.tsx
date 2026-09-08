@@ -1,0 +1,3 @@
+import { ProjectCard } from "@/components/dashboard/project-card";
+import { projects } from "@/data/projects";
+export default function ProjectsPage() { return <div className="mx-auto max-w-7xl px-5 py-8 lg:px-8"><div className="mb-8"><p className="text-xs font-semibold uppercase tracking-[.18em] text-primary">Workspace</p><h2 className="mt-2 text-3xl font-semibold tracking-[-.04em]">Projects</h2><p className="mt-2 text-sm text-muted">Your content intelligence projects in one place.</p></div><div className="grid gap-4 lg:grid-cols-3">{projects.map((project) => <ProjectCard key={project.id} project={project} />)}</div></div>; }

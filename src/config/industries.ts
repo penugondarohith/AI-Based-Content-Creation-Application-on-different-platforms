@@ -1,0 +1,10 @@
+import type { IndustryConfig } from "@/types/industry";
+
+export const industries: IndustryConfig[] = [
+  { id: "REAL_ESTATE", name: "Real Estate", shortName: "REAL ESTATE", description: "Build desire around spaces, places, and the life they enable.", icon: "⌂", color: "#5b5bd6", tone: ["Professional", "Aspirational", "Trustworthy"], focusAreas: ["Location", "Amenities", "Lifestyle", "Investment", "Property USP", "Configuration"], contentGoals: ["Build trust", "Showcase lifestyle", "Drive enquiries"] },
+  { id: "JEWELLERY", name: "Jewellery", shortName: "JEWELLERY", description: "Make craftsmanship, emotion, and occasion impossible to overlook.", icon: "✦", color: "#c58b45", tone: ["Luxury", "Emotional", "Elegant"], focusAreas: ["Craftsmanship", "Luxury", "Occasion", "Design", "Materials", "Emotion", "Gifting"], contentGoals: ["Create desire", "Tell the craft story", "Elevate perception"] },
+  { id: "PERFUME", name: "Perfume", shortName: "PERFUME", description: "Translate scent into a world of mood, memory, and personality.", icon: "◌", color: "#9b6cc7", tone: ["Sensory", "Sophisticated", "Emotional"], focusAreas: ["Fragrance Notes", "Mood", "Personality", "Lifestyle", "Luxury", "Occasion", "Sensory Language"], contentGoals: ["Build intrigue", "Own a mood", "Drive discovery"] },
+  { id: "FMCG_FOOD", name: "FMCG / Food", shortName: "FMCG / FOOD", description: "Turn everyday products into memorable moments people want to share.", icon: "✳", color: "#df765d", tone: ["Appetizing", "Friendly", "Relatable"], focusAreas: ["Taste", "Ingredients", "Convenience", "Family", "Consumption Occasions", "Product Benefits", "Food Appeal"], contentGoals: ["Spark appetite", "Build familiarity", "Drive trial"] },
+];
+
+export const getIndustry = (id: IndustryConfig["id"]) => industries.find((industry) => industry.id === id) ?? industries[0];

@@ -1,0 +1,3 @@
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+export function CreateProjectHeader() { return <div className="mb-8"><Link href="/dashboard" className="mb-6 inline-flex items-center gap-2 text-xs text-muted transition hover:text-primary"><ArrowLeft size={14} /> Back to dashboard</Link><p className="text-xs font-semibold uppercase tracking-[.18em] text-primary">New workspace</p><h2 className="mt-2 text-3xl font-semibold tracking-[-.04em]">Create content strategy</h2><p className="mt-2 text-sm text-muted">Configure your content intelligence workflow.</p></div>; }
