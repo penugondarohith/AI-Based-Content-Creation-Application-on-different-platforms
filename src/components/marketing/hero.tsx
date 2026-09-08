@@ -16,6 +16,7 @@ export function Hero() {
           <p className="mt-7 max-w-xl text-lg leading-8 text-white/60">ContentForge AI transforms industry knowledge, brand context, and content strategy into high-quality social media content.</p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link href="/create" className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-medium text-primary-strong transition hover:bg-violet-100">Create content strategy <ArrowRight size={16} /></Link>
+            <Link href="/demo" className="rounded-lg border border-white/15 px-5 py-3 text-sm text-white/75 transition hover:border-white/30 hover:text-white">Explore demo</Link>
             <a href="#workflow" className="rounded-lg border border-white/15 px-5 py-3 text-sm text-white/75 transition hover:border-white/30 hover:text-white">Explore platform</a>
           </div>
           <div className="mt-11 flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/45"><span className="flex items-center gap-2"><Check size={14} className="text-violet-300" /> Industry-specific by design</span><span className="flex items-center gap-2"><Check size={14} className="text-violet-300" /> Built for brand teams</span></div>
